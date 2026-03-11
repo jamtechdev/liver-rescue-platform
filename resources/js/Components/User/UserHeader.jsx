@@ -1,6 +1,6 @@
 import { Link, usePage } from '@inertiajs/react';
 import { useState } from 'react';
-import UserLogo from './UserLogo';
+// import UserLogo from './UserLogo';
 import UserNavLink from './UserNavLink';
 
 const NAV_ITEMS = [
@@ -20,9 +20,9 @@ export default function UserHeader() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-        <header className="sticky top-0 z-50 border-b border-sky-100 bg-white shadow-sm">
-            <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-                <UserLogo />
+        <header className=" top-0 z-50 fixed w-full">
+            <div className="mx-auto flex h-12 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 mt-4">
+                <img src="/images/logo.png" alt="logo" />
 
                 <nav className="hidden items-center gap-6 lg:flex">
                     {NAV_ITEMS.map((item) => (
@@ -32,7 +32,7 @@ export default function UserHeader() {
                     ))}
                 </nav>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 space-x-8 text-gray-600">
                     {user ? (
                         <>
                             {user.roles?.includes('admin') && (
@@ -45,7 +45,7 @@ export default function UserHeader() {
                             )}
                             <Link
                                 href={route('dashboard')}
-                                className="rounded-md bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700"
+                                className="bg-indigo-500 text-white px-6 py-2 rounded-full shadow hover:bg-indigo-600 site-btn"
                             >
                                 Dashboard
                             </Link>

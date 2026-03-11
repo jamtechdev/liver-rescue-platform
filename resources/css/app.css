@@ -1,3 +1,249 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+*{
+  font-family: "Gellix", sans-serif;
+
+}
+@font-face {
+  font-family: "Gellix";
+  src: url("gellix/Gellix-TRIAL-Thin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gellix";
+  src: url("gellix/Gellix-TRIAL-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gellix";
+  src: url("gellix/Gellix-TRIAL-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gellix";
+  src: url("gellix/Gellix-TRIAL-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gellix";
+  src: url("gellix/Gellix-TRIAL-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gellix";
+  src: url("gellix/Gellix-TRIAL-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gellix";
+  src: url("gellix/Gellix-TRIAL-ExtraBold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gellix";
+  src: url("gellix/Gellix-TRIAL-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+body {
+  font-family: "Gellix", sans-serif;
+}
+:root{
+  --bg-primary:rgba(0, 87, 255, 1);
+  --text-primary:rgba(0, 87, 255, 1);
+  --bg-secondary:rgba(27, 28, 87, 1);
+  --text-secondary:rgba(27, 28, 87, 1);
+}
+
+.bg-primary{
+  background-color: rgba(0, 87, 255, 1) !important;;
+}
+
+.bg-secondary{
+  background:rgba(27, 28, 87, 1) !important;
+}
+
+.border-indigo-400 {
+    --tw-border-opacity: 1;
+    border-color: rgba(27, 28, 87, 1) !important;
+}
+
+.text-secondary{
+ color:rgba(27, 28, 87, 1) !important;
+
+}
+
+.text-primary{
+  color:rgba(0, 87, 255, 1);
+}
+.site-btn{
+  background-color: var(--bg-primary) !important;
+}
+
+.max-w-9xl{
+  max-width: 90rem;
+}
+
+.swiper-button-prev{
+    position: absolute;
+    left: -5% !important;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 50%;
+    font-size: 10px;
+}
+
+.swiper-button-next{
+    position: absolute;
+    right: -5% !important;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 50%;
+    font-size: 10px;
+}
+
+.swiper-button-prev svg{
+  width: 15px;;
+}
+
+.swiper-button-next svg{
+  width: 15px;;
+}
+
+.about-section{
+  background-image: url(assets/images/border.png);
+  background-repeat: no-repeat;
+  left:50%;
+  width:100%;
+}
+
+.swiper-button-prev{
+    z-index: 1000;
+    position: absolute;
+    left: -7% !important;
+    width: 60px !important;
+    height: 60px !important;
+    background-color: white;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 50%;
+    font-size: 10px;
+    font-size: 30px !important;;
+
+}
+
+.swiper-button-next{
+    z-index: 1000;
+    position: absolute;
+    right: -7% !important;
+    width: 60px !important;
+    height: 60px !important;
+    background-color: white;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 50%;
+    font-size: 10px;
+    z-index: 10000;
+    font-size: 30px !important;;
+}
+
+.swiper-button-prev svg{
+  width: 15px !important;
+}
+
+.swiper-button-next svg{
+  width: 15px !important;
+}
+
+.bg-border-img{
+  background-image: url(/public/images/border.png);
+  background-size: 100%;
+  width:100%;
+  height: 100%;;
+}
+
+.find-perfect-section{
+     position: relative;
+    bottom: 120px;
+    overflow: hidden;
+    height: 100vh;;
+}
+
+.perfect-img-box{
+      width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+.perfect-img-box img{
+  width:53%;
+}
+
+.find-perfet-content{
+      position: absolute;
+    width: 100%;
+    top: 31%;
+}
+
+.find-message{
+    position: absolute;
+    background-image: url(http://[::1]:5173/public/images/find-message.png);
+    top: 26%;
+    height: 250px;
+    width: 26%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.find-message img{
+  width:80%;
+}
+
+.perfect-items{
+  position: absolute;
+  right: 10%;;
+  bottom: 10%;;
+  padding:25px;
+  background:#EDF3FF;
+  border:2px solid white;
+  border-radius: 8px;;
+}
+
+
+/* Find Frined Section */
+
+.find-friend{
+  background-image: url(images/find-friend.png);
+  padding:60px 0px;
+}
+
+
+/* Counter  */
+
+.counting-section{
+  background-image: url(images/counting.png);
+  padding:20px;
+}

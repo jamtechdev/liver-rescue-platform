@@ -2,47 +2,43 @@ import { Link } from '@inertiajs/react';
 
 export default function HeroSection() {
     return (
-        <section className="relative overflow-hidden bg-gradient-to-b from-sky-50 to-white px-4 py-16 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-4xl text-center">
-                <p className="text-sm font-medium uppercase tracking-wide text-sky-800">
-                    Welcome to
+
+
+
+        <section className="relative overflow-hidden bg-gradient-to-b from-sky-50 to-white px-4  sm:px-6 lg:px-8 pt-24">
+
+            <div className="max-w-7xl mx-auto text-center mt-24">
+                <p className="text-3xl font-semibold   text-secondary ">
+                    WELCOME TO
                 </p>
-                <h1 className="mt-2 text-4xl font-bold tracking-tight text-sky-900 sm:text-5xl lg:text-6xl">
+
+                <h1 className="text-6xl md:text-7xl font-semibold mt-3 text-secondary">
                     Liver Rescue Co.
                 </h1>
-                <p className="mx-auto mt-4 max-w-2xl text-lg text-sky-800">
-                    Join a community built on understanding and healing.
+
+                <p className=" text-lg mt-4 text-secondary">
+                    Join a Community Built on Understanding & Healing.
                 </p>
-                <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-                    <Link
-                        href={route('register')}
-                        className="inline-flex items-center rounded-lg bg-sky-600 px-6 py-3 text-base font-medium text-white hover:bg-sky-700"
-                    >
-                        Join Now
-                    </Link>
+
+
+                <div className="flex justify-center space-x-6 mt-8">
+
                     <button
-                        type="button"
-                        className="inline-flex items-center gap-2 rounded-lg border-2 border-sky-600 bg-white px-6 py-3 text-base font-medium text-sky-600 hover:bg-sky-50"
-                    >
-                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-sky-600 text-white">
-                            <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                            </svg>
-                        </span>
-                        Watch Our Story
+                        className="bg-indigo-500 text-white px-8 py-3 rounded-full shadow hover:bg-indigo-600 bg-primary">
+                        Join Now
+                    </button>
+
+                    <button
+                        className="border border-indigo-400 text-indigo-600 px-8 py-3 rounded-full flex items-center space-x-2 hover:bg-indigo-50">
+                        <span className="text-secondary">Watch Our Story</span>
+                        <span
+                            className="bg-indigo-500 text-white w-6 h-6 flex items-center justify-center rounded-full text-sm bg-secondary">▶</span>
                     </button>
                 </div>
             </div>
-            <div className="mx-auto mt-12 flex justify-center">
-                <div className="flex items-end gap-2">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                        <div
-                            key={i}
-                            className="h-16 w-12 rounded-full bg-sky-200/80 sm:h-20 sm:w-14"
-                            style={{ height: `${56 + i * 8}px` }}
-                        />
-                    ))}
-                </div>
+
+            <div className="flex justify-center">
+                <img src="/images/hero-img.png" className="w-100" />
             </div>
         </section>
     );

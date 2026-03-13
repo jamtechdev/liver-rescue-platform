@@ -38,7 +38,7 @@ class RegisteredUserController extends Controller
             'email'                 => 'required|string|lowercase|email|max:255|unique:users,email',
             'phone'                 => 'nullable|string|max:20|unique:users,phone',
             'password'              => ['required', 'confirmed', Rules\Password::defaults()],
-            'role'                  => 'required|in:member,practitioner,service-provider',
+            'role'                  => 'required|in:user,practitioner,service-provider',
 
             // Step 2 - Basic Profile
             'age'                   => 'required|integer|min:18|max:120',

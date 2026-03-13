@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminRecipeController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\RecipeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\LandingController;
 use App\Http\Controllers\User\PageController;
@@ -28,8 +30,21 @@ Route::get('/support', [PageController::class, 'support'])->name('support');
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/users', [UserController::class, 'index'])->name('users');
+    Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
+    Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+    Route::put('/users/{user}/update', [UserController::class, 'update'])->name('users.update');
     Route::patch('/users/{user}/approve', [UserController::class, 'approve'])->name('users.approve');
     Route::patch('/users/{user}/reject', [UserController::class, 'reject'])->name('users.reject');
+    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+
+    // Recipes Routes
+    Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes');
+    Route::get('/recipes/create', [RecipeController::class, 'create'])->name('recipes.create');
+    Route::post('/recipes', [RecipeController::class, 'store'])->name('recipes.store');
+    Route::get('/recipes/{recipe}', [RecipeController::class, 'show']);
+    Route::post('/recipes/{recipe}/approve', [RecipeController::class, 'approve']);
+    Route::post('/recipes/{recipe}/reject', [RecipeController::class, 'reject']);
+    Route::delete('/recipes/{recipe}', [RecipeController::class, 'destroy']);
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

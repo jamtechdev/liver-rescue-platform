@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
@@ -17,6 +14,27 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+
+            $table->string('phone')->nullable()->unique();
+
+            $table->string('profile_photo')->nullable();
+            $table->string('healing_proof_photo')->nullable();
+            $table->boolean('profile_approved')->default(false);
+
+            $table->enum('gender', ['male', 'female', 'other', 'prefer_not_to_say'])->nullable();
+            $table->unsignedInteger('age')->nullable();
+
+            $table->string('country')->nullable()->default('India');
+            $table->string('state')->nullable();
+            $table->string('city')->nullable();
+
+            $table->text('symptoms')->nullable();
+            $table->enum('healing_stage', ['early', 'middle', 'advanced', 'maintenance', 'unknown'])->nullable();
+            $table->unsignedInteger('mm_cleanse_days')->nullable();
+
+            $table->text('bio')->nullable();
+            $table->boolean('available_for_consult')->default(false);
+
             $table->rememberToken();
             $table->timestamps();
         });
@@ -37,9 +55,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('users');

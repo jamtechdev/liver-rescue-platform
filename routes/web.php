@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\LandingController;
 use App\Http\Controllers\User\PageController;
@@ -26,6 +27,9 @@ Route::get('/support', [PageController::class, 'support'])->name('support');
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
+    Route::get('/users', [UserController::class, 'index'])->name('users');
+    Route::patch('/users/{user}/approve', [UserController::class, 'approve'])->name('users.approve');
+    Route::patch('/users/{user}/reject', [UserController::class, 'reject'])->name('users.reject');
 });
 
 require __DIR__.'/auth.php';

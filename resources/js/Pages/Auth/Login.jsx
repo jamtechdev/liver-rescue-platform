@@ -4,9 +4,11 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
-import { Head, Link, useForm } from '@inertiajs/react';
+import { Head, Link, useForm, usePage } from '@inertiajs/react';
 
 export default function Login({ status, canResetPassword }) {
+    const { flash } = usePage().props;  // ← yeh line already sahi hai
+
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
         password: '',
@@ -28,6 +30,15 @@ export default function Login({ status, canResetPassword }) {
             {status && (
                 <div className="mb-4 text-sm font-medium text-green-600">
                     {status}
+                </div>
+            )}
+
+            {flash?.warning && (
+                <div className="mb-6 p-5 bg-yellow-50 border-l-4 border-yellow-500 text-yellow-800 rounded-lg shadow-sm">
+                    <p className="font-semibold text-lg">{flash.warning}</p>
+                    <p className="mt-2 text-sm">
+                        Admin is currently reviewing your profile. You will be able to log in once your account is approved (usually within 24–48 hours).
+                    </p>
                 </div>
             )}
 
@@ -70,9 +81,7 @@ export default function Login({ status, canResetPassword }) {
                         <Checkbox
                             name="remember"
                             checked={data.remember}
-                            onChange={(e) =>
-                                setData('remember', e.target.checked)
-                            }
+                            onChange={(e) => setData('remember', e.target.checked)}
                         />
                         <span className="ms-2 text-sm text-gray-600">
                             Remember me

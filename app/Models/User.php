@@ -22,6 +22,25 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+
+        'profile_photo',
+        'healing_proof_photo',
+        'profile_approved',
+
+        'gender',
+        'age',
+
+        'country',
+        'state',
+        'city',
+
+        'symptoms',
+        'healing_stage',
+        'mm_cleanse_days',
+
+        'bio',
+        'available_for_consult',
     ];
 
     /**
@@ -44,6 +63,14 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'profile_approved'      => 'boolean',
+            'available_for_consult' => 'boolean',
+
+            'age'                   => 'integer',
+            'mm_cleanse_days'       => 'integer',
+
+            'gender'                => 'string',
+            'healing_stage'         => 'string',
         ];
     }
 }

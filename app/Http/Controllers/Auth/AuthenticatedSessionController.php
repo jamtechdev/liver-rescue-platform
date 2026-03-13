@@ -27,12 +27,30 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
+    // public function store(LoginRequest $request): RedirectResponse
+    // {
+    //     $request->authenticate();
+
+    //     $request->session()->regenerate();
+
+    //     return redirect()->intended(route('dashboard', absolute: false));
+    // }
+
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
 
+        $request->authenticate();
         $request->session()->regenerate();
 
+        $user = Auth::user();
+
+        if (!$user->profile_approved) {
+
+            Auth::logout();
+            session()->flash('warning', 'Your profile is not approved yet.');
+
+            return redirect()->route('login');
+        }
         return redirect()->intended(route('dashboard', absolute: false));
     }
 

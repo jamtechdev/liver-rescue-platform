@@ -1,5 +1,6 @@
 import UserLayout from '@/Layouts/UserLayout';
 import { Head, usePage } from '@inertiajs/react';
+import { Link } from '@inertiajs/react';
 
 export default function UserDashboard() {
     const { auth } = usePage().props;
@@ -17,6 +18,14 @@ export default function UserDashboard() {
                     <p className="text-sm text-sky-600">
                         Your profile, recipes, and activity will appear here.
                     </p>
+                    <Link
+                        href={route('logout')}
+                        method="post"
+                        as="button"
+                        className="rounded-md bg-gray-800 px-3 py-1.5 text-sm text-white hover:bg-gray-700"
+                    >
+                        Log out
+                    </Link>
                 </div>
             </div>
         </UserLayout>
